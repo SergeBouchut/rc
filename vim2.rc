@@ -1,0 +1,101 @@
+" Plugin vundle to manage other plugins
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'python-mode/python-mode'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'dracula/vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+call vundle#end()
+
+" Plugin python-mode
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8,pylint"
+let g:pymode_lint_config = "$HOME/.pylintrc"
+let g:pymode_options_max_line_length = 100
+let g:pymode_lint_on_write = 1
+let g:pymode_virtualenv = 1
+let g:pymode_rope = 0 " disable auto completion
+
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>b'
+let g:pymode_breakpoint_cmd = 'import sys; import pdb; pdb.Pdb(stdout=sys.__stdout__).set_trace()  # XXX breakpoint a la cool'
+
+" Plugin jedi-vim
+let g:jedi#popup_on_dot = 0 " disable auto completion
+let g:jedi#show_call_signatures = 2
+let g:jedi#smart_auto_mappings = 0
+
+" Tabulations
+set modelines=0
+set expandtab
+set autoindent
+
+" Display tabs and spaces
+set list
+set listchars=trail:.,extends:+
+
+" Search options (incremental = live)
+set ignorecase smartcase incsearch hlsearch
+
+" display line numbers and highlight current line
+set number cursorline
+
+" default vim color theme
+" colorscheme default
+colorscheme dracula
+
+" expend first level, collapse sub levels
+set foldlevel=1
+
+" display commands bar with tab
+set wildchar=<Tab> wildmenu wildmode=full
+
+" invert default vertical / horizontal split
+set splitright splitbelow
+
+" Define ts files type as javascript
+augroup filetypedetect
+  au BufRead,BufNewFile *.ts set filetype=javascript
+augroup END 
+
+" file type based indentation
+filetype plugin indent on
+autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType php setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType xml setlocal tabstop=2 softtabstop=2 shiftwidth=2 foldmethod=indent foldlevelstart=999 foldminlines=0
+
+set shell=/bin/zsh
+
+" Refresh configuration (normal mode)
+nnoremap <C-F> :source ~/.vimrc<CR>:echo 'Sourced'<CR>
+" Auto write custom code (normal mode)
+nnoremap <C-L> oimport logging; logging.getLogger(__name__).info()<ESC>:w<CR>
+nnoremap <C-P> oimport sys; import pdb; pdb.Pdb(stdout=sys.__stdout__).set_trace()<ESC>:w<CR>
+nnoremap <C-X> ofrom yeti.apps.gdpr.middleware import GdprContext
+nnoremap <C-C> owith GdprContext(author=request.user):
+" Keep selection after indent (visual mode)
+vnoremap < <gv
+vnoremap > >gv
+" Move inside wrapped lines by default
+nnoremap <up> gk
+nnoremap <down> gj
+nnoremap <left> h
+nnoremap <right> l
+" Comment current line (normal mode) / selected lines (visual mode)
+noremap <C-D> <S-I># <ESC>
+" Common shortcuts
+" CTRL-S require to inactive XON sig in shell
+nnoremap <C-S> :w<CR>
+nnoremap <C-Q> :q<CR>
+" Improve select
+nnoremap <S-W> viw
+nnoremap <S-X> vi(
+nnoremap <S-Q> vi'
+nnoremap <S-S> vi"
