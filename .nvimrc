@@ -1,4 +1,3 @@
-
 set number cursorline
 
 set tabstop=4 softtabstop=4 shiftwidth=4
@@ -43,15 +42,15 @@ command! T vsplit | terminal
 
 " Smart selection
 
-function! SelectInner(tag)
+function! SelectInner(delimiter)
     " We have to switch to normal mode to compare positions
-    execute "normal! vi".a:tag."\<C-\>\<C-n>"
+    execute "normal! vi".a:delimiter."\<C-\>\<C-n>"
     return getpos("'<") != getpos("'>")
 endfunction
 
-function! TrySelectInner(tags)
-    for tag in a:tags
-        if SelectInner(tag)
+function! TrySelectInner(delimiters)
+    for delimiter in a:delimiters
+        if SelectInner(delimiter)
             normal! gv
             break
         endif
