@@ -1,0 +1,27 @@
+# coloring handled by terminal
+
+[user]
+        name = Serge Bouchut
+        email = serge.bouchut@gmail.com
+        username = SergeBouchut
+
+[core]
+        editor = vim
+        pager = cat
+
+[diff]
+        tool = vimdiff
+
+[alias]
+        cb = checkout -b
+        cm = commit --message
+        co = checkout
+        df = diff
+        lg = log --oneline --graph --decorate
+        st = status
+
+[merge]
+        tool = vimdiff
+
+[push]
+        default = simple
