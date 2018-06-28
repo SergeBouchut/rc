@@ -1,3 +1,4 @@
+alias br='git status 2> /dev/null | head -1 | sed -e "s/On branch //"'
 alias ls='ls -a'
 alias ll='ls -alh'
 
@@ -17,6 +18,7 @@ function zz() {
 
 HISTFILE=~/.zsh_history
 SAVEHIST=10000
+# directly add entry in history file instead of waiting shell exit
 setopt INC_APPEND_HISTORY
 
 bindkey '^[[A' history-beginning-search-backward
@@ -28,10 +30,10 @@ zstyle ':completion:*' menu select
 
 autoload -Uz promptinit
 promptinit
-if [[ '$USER' == 'serge' && '$HOSTNAME' == 'zenbook' ]]; then
-    PROMPT='%F{red}%n%f@%F{blue}%m%f %F{yellow}%1~%f %# '
-else
-    PROMPT='%F{yellow}%1~%f %# '
-fi
+# sequence coloration: %F{color}...%f
+# n last folders in path: %1~
+# prompt char (% or # for root): %#
+setopt PROMPT_SUBST  # enable use of alias/functions in prompt
+PROMPT='%F{yellow}%1~%f ($(br)) %# '  # project_dir (master) %
 
 echo '\( -.-)/__(")(")'
