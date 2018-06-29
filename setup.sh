@@ -50,9 +50,18 @@ cd ~/dev
 git clone git@github.com:SergeBouchut/rc.git
 git clone git@github.com:SergeBouchut/patterns.git
 
-virtualenv ~/dev/patterns/.venv2
-source ~/dev/patterns/.venv2/bin/activate --python=python2
-pip install \
-    ipython \
 
+sudo dnf install zlib-devel libffi-devel openssl-devel
 
+wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz
+tar -xzvf Python-3.7.0.tar.xz
+cd Python-3.7.0
+
+./configure --enable-optimizations
+make
+make test
+sudo -H make altinstall
+
+virtualenv ~/dev/.venv27 --python=python2,7
+virtualenv ~/dev/.venv36 --python=python3,6
+virtualenv ~/dev/.venv37 --python=python3,7
