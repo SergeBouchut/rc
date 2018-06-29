@@ -1,20 +1,24 @@
-alias br='git status 2> /dev/null | head -1 | sed -e "s/On branch //"'
-alias ls='ls -a'
+#--- START ALIAS ---#
 alias ll='ls -alh'
 
 function pyclean() {
-    find -type f -name '*.pyc' -delete
+    find -type f -name '*.py[co]' -delete
     find -type d -name '__pycache__' -delete
 }
+
 alias pyfind='find . -name "*.py"'
+
 alias pygrep='grep --include="*.py"'
 
-alias venv='source .venv/bin/activate'
+function venv() {
+    source .venv"$1"/bin/activate
+}
 
 function zz() {
     vim ~/.zshrc
     source ~/.zshrc
 }
+#--- END ALIAS ---#
 
 HISTFILE=~/.zsh_history
 SAVEHIST=10000
@@ -22,7 +26,9 @@ SAVEHIST=10000
 setopt INC_APPEND_HISTORY
 
 bindkey '^[[A' history-beginning-search-backward
+bindkey '^[OA' history-beginning-search-backward
 bindkey '^[[B' history-beginning-search-forward
+bindkey '^[OB' history-beginning-search-forward
 
 autoload -Uz compinit
 compinit
@@ -30,10 +36,22 @@ zstyle ':completion:*' menu select
 
 autoload -Uz promptinit
 promptinit
-# sequence coloration: %F{color}...%f
-# n last folders in path: %1~
-# prompt char (% or # for root): %#
-setopt PROMPT_SUBST  # enable use of alias/functions in prompt
-PROMPT='%F{yellow}%1~%f ($(br)) %# '  # project_dir (master) %
+setopt PROMPT_SUBST  # enable use of functions in prompt
+function branchname() {
+    count=$(git status --short 2> /dev/null | wc --lines)
+    if [ "$count" -eq 0 ]; then
+        color='cyan'
+    else
+        color='magenta'
+    fi
+    name=$(git status 2> /dev/null | head -1 | sed --expression 's/On branch //')
+    if [ -n "$name" ]; then
+        echo "%F{$color}$name%f "  # trailing space
+    fi
+}
+function dirpath() {
+    echo "%F{yellow}%~%f "  # trailing space
+}
+PROMPT='$(dirpath)$(branchname)%# '  # trailing space
 
 echo '\( -.-)/__(")(")'
