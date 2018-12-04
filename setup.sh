@@ -51,11 +51,15 @@ git clone git@github.com:SergeBouchut/rc.git
 git clone git@github.com:SergeBouchut/patterns.git
 
 
-sudo dnf install zlib-devel libffi-devel openssl-devel
+sudo dnf install \
+    zlib-devel \ 
+    libffi-devel \
+    openssl-devel \
+    sqlite-devel  # for ipython history
 
-wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz
-tar -xzvf Python-3.7.0.tar.xz
-cd Python-3.7.0
+wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
+tar -xzvf Python-3.7.1.tar.xz
+cd Python-3.7.1
 
 ./configure --enable-optimizations
 make
