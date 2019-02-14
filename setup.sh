@@ -15,6 +15,8 @@ sudo dnf install -y \
     pinta \
     python2-virtualenv \
     python3-virtualenv \
+    tmux \
+    tree \
     util-linux-user \
     vim \
     vlc \
@@ -30,7 +32,7 @@ flatpak install -y \
     # io.atom.Atom \
     # net.minetest.Minetest
     # org.octave.Octave \
-    org.signal.Signal \
+    # org.signal.Signal \
     org.telegram.desktop \
 
 chsh -s $(which zsh)
@@ -51,21 +53,19 @@ git clone git@github.com:SergeBouchut/rc.git
 git clone git@github.com:SergeBouchut/patterns.git
 
 
-sudo dnf install \
-    zlib-devel \ 
-    libffi-devel \
-    openssl-devel \
-    sqlite-devel  # for ipython history
+# sudo dnf install \
+#     zlib-devel \ 
+#     libffi-devel \
+#     openssl-devel \
+#     sqlite-devel  # for ipython history
 
-wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
-tar -xzvf Python-3.7.1.tar.xz
-cd Python-3.7.1
+# wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
+# tar -xzvf Python-3.7.1.tar.xz
+# cd Python-3.7.1
+# ./configure --enable-optimizations
+# make
+# make test
+# sudo -H make altinstall
 
-./configure --enable-optimizations
-make
-make test
-sudo -H make altinstall
-
-virtualenv ~/dev/.venv27 --python=python2,7
-virtualenv ~/dev/.venv36 --python=python3,6
-virtualenv ~/dev/.venv37 --python=python3,7
+virtualenv ~/dev/.venv2 --python=python2
+virtualenv ~/dev/.venv3 --python=python3
