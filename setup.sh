@@ -69,3 +69,6 @@ git clone git@github.com:SergeBouchut/patterns.git
 
 virtualenv ~/dev/.venv2 --python=python2
 virtualenv ~/dev/.venv3 --python=python3
+
+dconf write /org/gnome/terminal/legacy/profiles:/$(dconf list /org/gnome/terminal/legacy/profiles:/)use-custom-command true
+dconf write /org/gnome/terminal/legacy/profiles:/$(dconf list /org/gnome/terminal/legacy/profiles:/)custom-command "gnome-terminal -e 'tmux new-session -A -s main'"
