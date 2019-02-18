@@ -21,7 +21,8 @@ function zz() {
 #--- END ALIAS ---#
 
 HISTFILE=~/.zsh_history
-SAVEHIST=10000
+HISTSIZE=10000000
+SAVEHIST=10000000
 # directly add entry in history file instead of waiting shell exit
 setopt INC_APPEND_HISTORY
 
