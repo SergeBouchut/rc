@@ -13,7 +13,6 @@ sudo dnf install -y \
     htop \
     httpie \
     pinta \
-    pgcli \
     python2-virtualenv \
     python3-virtualenv \
     tig \
