@@ -21,6 +21,7 @@ sudo dnf install -y \
     util-linux-user \
     vim \
     vlc \
+    xclip \
     zsh \
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -71,6 +72,10 @@ git clone git@github.com:SergeBouchut/patterns.git
 virtualenv ~/dev/.venv2 --python=python2
 virtualenv ~/dev/.venv3 --python=python3
 
+# pip install \
+#    ipython \
+#    pgcli \
+    
 echo"
 visible-name='serge'
 login-shell=false
