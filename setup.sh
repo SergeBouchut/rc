@@ -13,8 +13,10 @@ sudo dnf install -y \
     htop \
     httpie \
     pinta \
+    pgcli \
     python2-virtualenv \
     python3-virtualenv \
+    tig \
     tmux \
     tree \
     util-linux-user \
@@ -57,7 +59,7 @@ git clone git@github.com:SergeBouchut/patterns.git
 #     zlib-devel \ 
 #     libffi-devel \
 #     openssl-devel \
-#     sqlite-devel  # for ipython history
+#     sqlite-devel \ # for ipython history
 
 # wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
 # tar -xzvf Python-3.7.1.tar.xz
