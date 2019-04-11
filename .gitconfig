@@ -1,6 +1,7 @@
 # coloring handled by terminal
 
 [alias]
+        br = branch
         cb = checkout -b
         cm = commit --message
         co = checkout
