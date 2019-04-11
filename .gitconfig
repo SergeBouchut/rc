@@ -11,7 +11,7 @@
 
 [core]
         editor = vim
-        # pager = cat  # better to use git df | cat
+        # pager = cat  # better to use git df --color=always | cat
 
 [diff]
         tool = vimdiff
