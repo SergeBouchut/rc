@@ -54,6 +54,7 @@ dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf
 
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" # reboot
 # todo enable compose key right ctrl
+# https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/desktop_migration_and_administration_guide/enable-compose-key
 
 ssh-keygen -t rsa -b 4096 -C "serge.bouchut@gmail.com"
 eval "$(ssh-agent -s)"
