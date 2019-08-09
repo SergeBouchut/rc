@@ -52,6 +52,9 @@ wget https://raw.githubusercontent.com/SergeBouchut/rc/master/gnome-terminal-pro
 
 dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf
 
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+# todo enable compose key left ctrl
+
 ssh-keygen -t rsa -b 4096 -C "serge.bouchut@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
