@@ -24,6 +24,10 @@ sudo dnf install -y \
     xclip \
     zsh \
 
+systemctl enable docker # reboot
+sudo groupadd docker
+sudo usermod -aG docker $USER # relogin
+
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 flatpak install -y \
@@ -38,7 +42,7 @@ flatpak install -y \
     # io.atom.Atom \
     # net.minetest.Minetest \
 
-chsh -s $(which zsh) # applied after log out then log in
+chsh -s $(which zsh) # relogin
 
 wget https://raw.githubusercontent.com/SergeBouchut/rc/master/.gitconfig
 wget https://raw.githubusercontent.com/SergeBouchut/rc/master/.tmux.conf
