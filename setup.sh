@@ -34,10 +34,11 @@ flatpak install -y \
     org.octave.Octave \
     org.signal.Signal \
     org.telegram.desktop \
+    
     # io.atom.Atom \
     # net.minetest.Minetest \
 
-chsh -s $(which zsh)
+chsh -s $(which zsh) # applied after log out then log in
 
 wget https://raw.githubusercontent.com/SergeBouchut/rc/master/.gitconfig
 wget https://raw.githubusercontent.com/SergeBouchut/rc/master/.tmux.conf
@@ -47,34 +48,16 @@ wget https://raw.githubusercontent.com/SergeBouchut/rc/master/.zshrc
 ssh-keygen -t rsa -b 4096 -C "serge.bouchut@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
+xclip -sel clip < ~/.ssh/id_rsa.pub
 
 mkdir ~/dev
-cd ~/dev
+virtualenv ~/dev/.venv --python=python3
+source ~/dev/.venv/bin/activate
 
-git clone git@github.com:SergeBouchut/rc.git
-git clone git@github.com:SergeBouchut/patterns.git
-
-
-# sudo dnf install \
-#     zlib-devel \ 
-#     libffi-devel \
-#     openssl-devel \
-#     sqlite-devel \ # for ipython history
-
-# wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
-# tar -xzvf Python-3.7.1.tar.xz
-# cd Python-3.7.1
-# ./configure --enable-optimizations
-# make
-# make test
-# sudo -H make altinstall
-
-virtualenv ~/dev/.venv2 --python=python2
-virtualenv ~/dev/.venv3 --python=python3
-
-# pip install \
-#    ipython \
-#    pgcli \
+pip install \
+   ipython \
+   
+   # pgcli \
     
 echo"
 visible-name='serge'
