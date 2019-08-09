@@ -35,7 +35,7 @@ flatpak install -y \
     org.signal.Signal \
     org.telegram.desktop \
     # io.atom.Atom \
-    # net.minetest.Minetest
+    # net.minetest.Minetest \
 
 chsh -s $(which zsh)
 
