@@ -12,9 +12,12 @@ sudo dnf install -y \
     gnome-tweaks \
     htop \
     httpie \
+    libpq-devel \
     pinta \
+    postgresql \
     python2-virtualenv \
     python3-virtualenv \
+    qgis \
     tig \
     tmux \
     tree \
@@ -23,6 +26,9 @@ sudo dnf install -y \
     vlc \
     xclip \
     zsh \
+    
+    # spatialindex \
+    # spatialindex-devel \
 
 systemctl enable docker # reboot
 sudo groupadd docker
