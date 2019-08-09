@@ -27,15 +27,15 @@ sudo dnf install -y \
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 flatpak install -y \
-    # com.slack.Slack \
+    com.slack.Slack \
     com.spotify.Client \
-    # com.valvesoftware.Steam \
-    # com.visualstudio.code \
+    com.valvesoftware.Steam \
+    com.visualstudio.code \
+    org.octave.Octave \
+    org.signal.Signal \
+    org.telegram.desktop \
     # io.atom.Atom \
     # net.minetest.Minetest
-    # org.octave.Octave \
-    # org.signal.Signal \
-    org.telegram.desktop \
 
 chsh -s $(which zsh)
 
