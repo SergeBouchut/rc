@@ -8,7 +8,6 @@ sudo dnf update -y
 
 sudo dnf install -y \
     chrome-gnome-shell \
-    docker \
     gnome-tweaks \
     htop \
     httpie \
@@ -30,9 +29,13 @@ sudo dnf install -y \
     # spatialindex \
     # spatialindex-devel \
 
-systemctl enable docker # reboot
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io
 sudo groupadd docker
-sudo usermod -aG docker $USER # relogin
+sudo usermod -aG docker $USER # logout or wait for reboot below
+sudo systemctl start docker
+sudo systemctl enable docker # reboot
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
