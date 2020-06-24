@@ -30,12 +30,16 @@ sudo dnf install -y \
 
 sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf update -y
 sudo dnf install docker-ce docker-ce-cli containerd.io
-sudo groupadd docker
+
+# f32 issues with cgroup v2
+# sudo dnf install --releasever=31 docker-ce docker-ce-cli containerd.io
+# sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"  # reboot
+# sudo vim /etc/firewalld/firewalld.conf  # FirewallBackend=iptables
+# sudo systemctl restart firewalld.service
+
 sudo usermod -aG docker $USER # logout or wait for reboot below
-sudo systemctl start docker
-sudo systemctl enable docker # reboot
+sudo systemctl enable docker --now
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
