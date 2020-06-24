@@ -18,7 +18,7 @@ sudo dnf install -y \
     vim \
     vlc \
     xclip \
-    zsh
+    zsh \
 
     # chrome-gnome-shell \
     # libpq-devel \
@@ -41,12 +41,13 @@ sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub
 
 flatpak install -y \
     com.slack.Slack \
-    com.spotify.Client \
-    com.valvesoftware.Steam \
-    com.visualstudio.code \
-    org.octave.Octave \
     org.signal.Signal \
     org.telegram.desktop \
+
+    # com.spotify.Client \
+    # com.valvesoftware.Steam \
+    # com.visualstudio.code \
+    # org.octave.Octave \
     
     # io.atom.Atom \
     # net.minetest.Minetest \
