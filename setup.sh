@@ -14,7 +14,6 @@ sudo dnf install -y \
     libpq-devel \
     pinta \
     postgresql \
-    python2-virtualenv \
     python3-virtualenv \
     qgis \
     tig \
