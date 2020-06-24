@@ -72,7 +72,7 @@ ssh-add ~/.ssh/id_rsa
 xclip -sel clip < ~/.ssh/id_rsa.pub
 
 mkdir ~/dev
-virtualenv ~/dev/.venv --python=python3
+python -m venv ~/dev/.venv
 source ~/dev/.venv/bin/activate
 
 pip install \
