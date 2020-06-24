@@ -7,15 +7,10 @@ sudo dnf install -y \
 sudo dnf update -y
 
 sudo dnf install -y \
-    chrome-gnome-shell \
     gnome-tweaks \
     htop \
     httpie \
-    libpq-devel \
     pinta \
-    postgresql \
-    python3-virtualenv \
-    qgis \
     tig \
     tmux \
     tree \
@@ -23,8 +18,13 @@ sudo dnf install -y \
     vim \
     vlc \
     xclip \
-    zsh \
-    
+    zsh
+
+    # chrome-gnome-shell \
+    # libpq-devel \
+    # postgresql \
+    # python3-virtualenv \
+    # qgis \    
     # spatialindex \
     # spatialindex-devel \
 
