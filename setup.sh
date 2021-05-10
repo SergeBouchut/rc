@@ -12,6 +12,7 @@ sudo dnf -y install \
     htop \
     httpie \
     pinta \
+    postgresql \
     tig \
     tmux \
     tree \
