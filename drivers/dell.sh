@@ -27,3 +27,14 @@ sudo ./install-driver.sh
 
 lspci -v | grep VGA
 # NVIDIA Corporation GM107GL [Quadro K620]
+
+# https://www.nvidia.com/Download/Find.aspx?lang=en-us
+wget https://us.download.nvidia.com/XFree86/Linux-x86_64/465.27/NVIDIA-Linux-x86_64-465.27.run
+chmod +x NVIDIA-Linux-x86_64-465.27.run
+
+sudo dnf -y install kernel-devel kernel-headers gcc make dkms acpid libglvnd-glx libglvnd-opengl libglvnd-devel pkgconfig
+
+vim /etc/default/grub  # append `rd.driver.blacklist=nouveau` to `GRUB_CMDLINE_LINUX`
+# GRUB_CMDLINE_LINUX="rhgb quiet rd.driver.blacklist=nouveau"
+grub2-mkconfig -o /boot/grub2/grub.cfg
+sudo dnf -y remove xorg-x11-drv-nouveau
