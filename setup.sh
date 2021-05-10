@@ -1,6 +1,7 @@
 #! /usr/bin/sh
 
 sudo dnf -y install \
+    fedora-workstation-repositories \
     https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
     https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
@@ -18,7 +19,7 @@ sudo dnf -y install \
     vim \
     vlc \
     xclip \
-    zsh \
+    zsh
 
 sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
@@ -31,7 +32,7 @@ sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub
 
 flatpak install -y \
     com.slack.Slack \
-    org.telegram.desktop \
+    org.telegram.desktop
 
 chsh -s $(which zsh)
 
