@@ -37,4 +37,19 @@ sudo dnf -y install kernel-devel kernel-headers gcc make dkms acpid libglvnd-glx
 vim /etc/default/grub  # append `rd.driver.blacklist=nouveau` to `GRUB_CMDLINE_LINUX`
 # GRUB_CMDLINE_LINUX="rhgb quiet rd.driver.blacklist=nouveau"
 grub2-mkconfig -o /boot/grub2/grub.cfg
+
 sudo dnf -y remove xorg-x11-drv-nouveau
+
+mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r)-nouveau.img
+dracut /boot/initramfs-$(uname -r).img $(uname -r)
+
+sudo systemctl set-default multi-user.target
+sudo reboot
+
+sudo ./NVIDIA-Linux-x86_64-465.27.run  # yes
+
+systemctl set-default graphical.target
+reboot
+
+sudo dnf install vdpauinfo libva-vdpau-driver libva-utils
+
