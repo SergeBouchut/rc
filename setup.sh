@@ -51,4 +51,4 @@ ssh-add ~/.ssh/id_rsa
 xclip -sel clip < ~/.ssh/id_rsa.pub
 # https://gitlab.com/-/profile/keys
 # https://github.com/settings/keys
-# https://console.scaleway.com/instance/servers
+# https://console.scaleway.com/project/credentials
