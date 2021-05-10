@@ -46,7 +46,7 @@ wget https://raw.githubusercontent.com/SergeBouchut/rc/master/gnome-terminal-pro
 dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf
 rm gnome-terminal-profiles.dconf
 
-# todo enable compose key right ctrl
+gnome-tweaks  # keyboard > compose key > enable > right ctrl
 
 ssh-keygen -t rsa -b 4096 -C "serge.bouchut@gmail.com"
 eval "$(ssh-agent -s)"
