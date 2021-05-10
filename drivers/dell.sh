@@ -1,3 +1,5 @@
+##### wifi dongle
+
 uname -r  # kernel version
 # 5.11.12-300.fc34.x86_64
 
@@ -20,3 +22,8 @@ sudo ./install-driver.sh
 # if kernel headers version not match kernel version
 # sudo dnf -y install "kernel-devel-uname-r == $(uname -r)"
 # sudo ./remove-driver.sh
+
+##### graphic card
+
+lspci -v | grep VGA
+# NVIDIA Corporation GM107GL [Quadro K620]
