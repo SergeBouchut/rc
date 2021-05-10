@@ -54,3 +54,7 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 # https://gitlab.com/-/profile/keys
 # https://github.com/settings/keys
 # https://console.scaleway.com/project/credentials
+docker login registry.gitlab.com
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim  # :PluginInstall
