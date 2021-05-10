@@ -20,21 +20,22 @@ sudo dnf -y install \
     vlc \
     xclip \
     zsh
-
-sudo dnf -y install dnf-plugins-core
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf -y install docker-ce docker-ce-cli containerd.io
-
-sudo usermod -aG docker $USER
-sudo systemctl enable docker --now
+chsh -s $(which zsh)
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
 flatpak install -y \
     com.slack.Slack \
     org.telegram.desktop
 
-chsh -s $(which zsh)
+
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf -y install docker-ce docker-ce-cli containerd.io
+sudo usermod -aG docker $USER
+sudo systemctl enable docker --now
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
 wget https://raw.githubusercontent.com/SergeBouchut/rc/master/.gitconfig
 wget https://raw.githubusercontent.com/SergeBouchut/rc/master/.tmux.conf
