@@ -42,9 +42,9 @@ wget https://raw.githubusercontent.com/SergeBouchut/rc/master/.gitconfig
 wget https://raw.githubusercontent.com/SergeBouchut/rc/master/.tmux.conf
 wget https://raw.githubusercontent.com/SergeBouchut/rc/master/.vimrc
 wget https://raw.githubusercontent.com/SergeBouchut/rc/master/.zshrc
-
-# wget https://raw.githubusercontent.com/SergeBouchut/rc/master/gnome-terminal-profiles.dconf
-# dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf
+wget https://raw.githubusercontent.com/SergeBouchut/rc/master/gnome-terminal-profiles.dconf
+dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf
+rm gnome-terminal-profiles.dconf
 
 # todo enable compose key right ctrl
 
