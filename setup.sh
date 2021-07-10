@@ -51,7 +51,7 @@ gnome-tweaks  # keyboard > compose key > enable > right ctrl
 ssh-keygen -t ed25519 -C "serge.bouchut@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
-xclip -sel clip < ~/.ssh/id_ed25519.pub
+xclip -selection clip < ~/.ssh/id_ed25519.pub
 # https://gitlab.com/-/profile/keys
 # https://github.com/settings/keys
 # https://console.scaleway.com/project/credentials
