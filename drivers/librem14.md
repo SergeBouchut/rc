@@ -25,11 +25,11 @@ AttrEventCodeDisable=BTN_RIGHT
 
 https://forums.puri.sm/t/librem-14-touchpad-right-click-button-not-detected-on-arch/13901
 
-# Battery charging
+# Battery
 
 ## Issue
 
-Battery not charging.
+Battery not charging, even when computer is off.
 
 ## Versions
 
@@ -38,7 +38,7 @@ Battery not charging.
 
 ## Solution
 
-Install Librem EC firmware (there is a Debian package `librem-ec-acpi-dkms`).
+Install Librem ACPI firmware (there is a Debian package `librem-ec-acpi-dkms`).
 
 ```
 sudo dnf install dkms
