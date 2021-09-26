@@ -56,9 +56,26 @@ Change charging start and end threshold.
 
 ```
 sudo vim /sys/class/power_supply/BAT0/charge_control_start_threshold  # 40 (battery won't start charging above, but will continue if charge already started)
-sudo vim /sys/class/power_supply/BAT0/charge_control_start_threshold  # 95
+sudo vim /sys/class/power_supply/BAT0/charge_control_end_threshold  # 95
 ```
 
 ## Resources
 
 https://forums.puri.sm/t/librem-14-failed-to-charge-solved/13935
+
+# Boot
+
+## Issue
+
+Checksum mismatch.
+
+## Solution
+
+Files have changed after kernel update.
+- Refresh checksums.
+- Ensure date is correct. If not, set date and update hardware clock.
+
+```
+data
+date -D "%Y%m%d %T" -s "20210913 11:05"hwclock -wboot
+```
