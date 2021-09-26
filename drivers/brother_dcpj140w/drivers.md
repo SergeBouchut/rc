@@ -28,5 +28,7 @@ Add printer
 
 # Scanner
 
+Note: scanner may already works out-of-the-box
+
 Scanner driver 64bit (rpm package)
 https://download.brother.com/welcome/dlf105203/brscan4-0.4.10-1.x86_64.rpm
