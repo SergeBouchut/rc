@@ -76,6 +76,8 @@ Files have changed after kernel update.
 - Ensure date is correct. If not, set date and update hardware clock.
 
 ```
-data
-date -D "%Y%m%d %T" -s "20210913 11:05"hwclock -wboot
+date
+date -D "%Y%m%d %T" -s "20210913 11:05:00"
+hwclock -w
+reboot
 ```
