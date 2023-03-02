@@ -8,11 +8,8 @@ sudo dnf -y install \
 sudo dnf -y update
 
 sudo dnf -y install \
-    gnome-tweaks \
     htop \
-    httpie \
     pinta \
-    postgresql \
     tig \
     tmux \
     tree \
@@ -25,18 +22,14 @@ chsh -s $(which zsh)
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install -y \
-    com.slack.Slack \
     org.telegram.desktop
 
 
 sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf -y install docker-ce docker-ce-cli containerd.io
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker $USER
 sudo systemctl enable docker --now
-
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
 
 wget https://raw.githubusercontent.com/SergeBouchut/rc/master/.gitconfig
 wget https://raw.githubusercontent.com/SergeBouchut/rc/master/.tmux.conf
