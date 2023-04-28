@@ -25,7 +25,11 @@ flatpak install -y \
     com.slack.Slack \
     com.spotify.Client \
     org.telegram.desktop
-
+    
+sudo dnf install snapd
+# restart
+sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install code --classic
 
 sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
