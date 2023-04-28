@@ -22,6 +22,8 @@ sudo chsh -s $(which zsh) ${USER}
 
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install -y \
+    com.slack.Slack \
+    com.spotify.Client \
     org.telegram.desktop
 
 
