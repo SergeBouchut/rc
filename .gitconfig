@@ -4,10 +4,13 @@
         br = branch
         cb = checkout -b
         cm = commit --message
+        ca = commit --amend
         co = checkout
         df = diff
         lg = log --oneline --graph
         st = status
+        cp = cherry-pick
+        rb = rebase
 
 [core]
         editor = vim
